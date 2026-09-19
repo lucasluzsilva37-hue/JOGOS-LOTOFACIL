@@ -23,7 +23,9 @@ st.write(df_frequencia.sort_values(by='Frequência', ascending=False))
 mais_frequentes = [num for num, count in frequencia.most_common(10)]
 st.write(f"Os 10 números mais frequentes são: {mais_frequentes}")
 
-if st.button("Gerar Palpite"):
-    palpite = sorted(random.sample(mais_frequentes, 10) + random.sample(range(1, 26), 5))
-    palpite = sorted(list(set(palpite[:15]))) # Garante 15 números únicos
-    st.write(f"Seu Palpite Sugerido: {palpite}")
+if st.button("Gerar Palpites"):
+    st.write("Aqui estão 10 palpites sugeridos:")
+    for i in range(1, 11):
+        palpite = sorted(random.sample(mais_frequentes, 10) + random.sample(range(1, 26), 5))
+        palpite = sorted(list(set(palpite[:15]))) # Garante 15 números únicos
+        st.write(f"Palpite {i}: {palpite}")
